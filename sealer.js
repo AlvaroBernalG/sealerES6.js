@@ -2,7 +2,7 @@
 function make_sealer () {
 	let boxes = {};
 	return {
-		seal(value){
+		sealer(value){
 			let token = {};
 			boxes[token] = value;
 			return token;
@@ -15,10 +15,10 @@ function make_sealer () {
 
 let secret = {password: 1234};
 
-let sealer = make_sealer();
+let seal = make_sealer();
 
-let token = sealer.seal(secret);
+let token = seal.sealer(secret);
 
-let value = sealer.unsealer(token);
+let value = seal.unsealer(token);
 
 console.log(`The secret password is '${value.password}' `);
